@@ -52,7 +52,7 @@ public class NoClip : MonoBehaviour
         this.move = Input.GetAxisRaw("Vertical");
         this.strafe = Input.GetAxisRaw("Horizontal");
         this.shift = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-        this.upDown = boolToInt(Input.GetKey(KeyCode.Q)) - boolToInt(Input.GetKey(KeyCode.E));
+        this.upDown = BoolToInt(Input.GetKey(KeyCode.Q)) - BoolToInt(Input.GetKey(KeyCode.E));
         // rotate the camera based on mouse movement
         float speed = this.lookSpeed * Time.deltaTime;
         rotX = rotX + (Input.GetAxis("Mouse Y") * speed * (this.invertY ? 1f : -1f));
@@ -61,12 +61,12 @@ public class NoClip : MonoBehaviour
         transform.rotation = Quaternion.Euler(rotX, rotY, 0);
     }
 
-    public Vector2 getRotation()
+    public Vector2 GetRotation()
     {
         return new Vector2(rotX, rotY);
     }
 
-    private int boolToInt(bool value)
+    private int BoolToInt(bool value)
     {
         return value ? 1 : 0;
     }

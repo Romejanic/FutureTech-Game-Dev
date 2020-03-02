@@ -17,7 +17,7 @@ public class NoClipEditor : Editor
 
         // debug option (if in play mode)
         if(DEBUG && Application.isPlaying) {
-            Vector2 rotation = script.getRotation();
+            Vector2 rotation = script.GetRotation();
             EditorGUILayout.LabelField("Current Rotation", EditorStyles.boldLabel);
             AddKeyValuePair("X", rotation.x.ToString());
             AddKeyValuePair("Y", rotation.y.ToString());
