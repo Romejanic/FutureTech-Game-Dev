@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(Camera))]
+[AddComponentMenu("Game Dev Workshop/No Clip Camera")]
 public class NoClip : MonoBehaviour
 {
     public float moveSpeed = 5;
