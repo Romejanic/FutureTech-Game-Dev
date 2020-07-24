@@ -2,16 +2,20 @@
 
 public class FollowCamera : MonoBehaviour
 {
-    public Transform following;
-    public Transform[] followingMulti;
+    [SerializeField] public Transform following;
+    [SerializeField] public Transform[] followingMulti;
     public bool multi = false;
 
-    public float followDistance = 3f;
     public float lookSpeed = 180;
     public bool invertY = false;
     public float lookLimit = 90f;
     public bool lockCursor = true;
     public float smoothSpeed = 3;
+
+    public float followDistance = 10f;
+    public float minDistance = 5f;
+    public float maxDistance = 10f;
+    public float zoomSpeed = 3f;
 
     private float rotX, rotY;
     private Vector3 velocity;
@@ -32,20 +36,25 @@ public class FollowCamera : MonoBehaviour
     {
         if (!following && !multi)
             return;
+        // look
         float speed = this.lookSpeed * Time.deltaTime;
         rotX = rotX + (Input.GetAxis("Mouse Y") * speed * (this.invertY ? 1f : -1f));
         rotY = (rotY + (Input.GetAxis("Mouse X") * speed)) % 360f;
         rotX = Mathf.Clamp(rotX, -this.lookLimit + 0.1f, this.lookLimit - 0.1f); // x axis needs to be limited so you can't look backwards
-        Quaternion target = Quaternion.Euler(rotX, rotY, 0);
-        transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * this.smoothSpeed);
+        // zoom
+        followDistance = Mathf.Clamp(followDistance + Input.GetAxis("Mouse ScrollWheel") * this.zoomSpeed, this.minDistance, this.maxDistance);
     }
     
     void FixedUpdate()
     {
         if (!following && !multi)
             return;
-        Vector3 target = this.GetFollowingPoint() - transform.forward * this.followDistance;
-        transform.position = Vector3.SmoothDamp(transform.position, target, ref velocity, this.smoothSpeed * Time.fixedDeltaTime);
+        // rotation
+        Quaternion target = Quaternion.Euler(rotX, rotY, 0);
+        transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.fixedDeltaTime * this.smoothSpeed);
+        // movement
+        Vector3 targetPos = this.GetFollowingPoint() - transform.forward * this.followDistance;
+        transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, this.smoothSpeed * Time.fixedDeltaTime);
     }
 
     Vector3 GetFollowingPoint()

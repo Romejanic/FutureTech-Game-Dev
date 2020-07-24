@@ -405,11 +405,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   following: {fileID: 1287765625}
-  followDistance: 10
+  followingMulti:
+  - {fileID: 1287765625}
+  - {fileID: 989338034}
+  multi: 0
   lookSpeed: 180
   invertY: 0
   lookLimit: 90
   lockCursor: 1
+  smoothSpeed: 3
+  followDistance: 10
+  minDistance: 5
+  maxDistance: 10
+--- !u!4 &989338034 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 0ec55bff10df72e4e8ab4bb88fad1652,
+    type: 3}
+  m_PrefabInstance: {fileID: 1414793155}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1086358197
 GameObject:
   m_ObjectHideFlags: 0
