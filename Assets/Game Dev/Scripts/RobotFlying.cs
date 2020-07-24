@@ -54,4 +54,19 @@ public class RobotFlying : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, hoverRange);
     }
 
+    public bool HasSpottedPlayer()
+    {
+        return spottedPlayer;
+    }
+
+    public Vector3 GetPlayerPosition()
+    {
+        return player.position;
+    }
+
+    public bool HasPlayer()
+    {
+        return player != null;
+    }
+
 }
