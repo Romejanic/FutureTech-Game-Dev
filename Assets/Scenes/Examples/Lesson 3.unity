@@ -401,13 +401,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 628584864}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0866acafb5c5415458b5d63d9cb5b960, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e1b7b5261441c7458be818c13743eaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
-  shiftMultiplier: 3
-  smoothSpeed: 3
-  lookSpeed: 230
+  following: {fileID: 1287765625}
+  followDistance: 10
+  lookSpeed: 180
   invertY: 0
   lookLimit: 90
   lockCursor: 1
@@ -591,7 +590,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1287765620}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 811.40466, y: 193.05954, z: 685.30585}
+  m_LocalPosition: {x: 811.40466, y: 193.05954, z: 695.68}
   m_LocalScale: {x: 3.9937425, y: 3.9937425, z: 3.9937425}
   m_Children: []
   m_Father: {fileID: 0}
