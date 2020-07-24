@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Camera))]
+[AddComponentMenu("Game Dev Workshop/Follow Camera")]
 public class FollowCamera : MonoBehaviour
 {
     [SerializeField] public Transform following;
