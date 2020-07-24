@@ -32,6 +32,7 @@ public class FollowCamera : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
+        followDistance = minDistance;
     }
 
     void Update()
