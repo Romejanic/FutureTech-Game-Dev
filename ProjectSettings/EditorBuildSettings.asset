@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Examples/Lesson 2.unity
     guid: ab7399a9ce5c2ae44b722feb08701b34
+  - enabled: 1
+    path: Assets/Scenes/Examples/Lesson 3.unity
+    guid: 502c1b5a8b9e9a545b17eec86d1c285c
+  - enabled: 1
+    path: Assets/Scenes/Examples/Lesson 4.unity
+    guid: b475104b2de707049a24b7186e8fba40
   m_configObjects: {}

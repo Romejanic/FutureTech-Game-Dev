@@ -8,6 +8,7 @@ public class RobotFlying : MonoBehaviour
     public float flySpeed = 5f;
 
     private Transform player;
+    private Collider playerCollider;
     private Rigidbody rb;
     private bool spottedPlayer = false;
 
@@ -20,6 +21,7 @@ public class RobotFlying : MonoBehaviour
             Debug.Log("Found no player to kill! Make sure there's an object with the tag \"Player\"");
         } else {
             player = playerObj.transform;
+            playerCollider = playerObj.GetComponent<Collider>();
         }
     }
 
@@ -34,7 +36,7 @@ public class RobotFlying : MonoBehaviour
             }
         } else {
             float sqrHover = hoverRange * hoverRange;
-            Vector3 toPlayer = (player.position - transform.position).normalized;
+            Vector3 toPlayer = (GetPlayerPosition() - transform.position).normalized;
             Quaternion rot = Quaternion.LookRotation(toPlayer);
             rb.MoveRotation(Quaternion.Slerp(transform.rotation, rot, this.turnSpeed * Time.fixedDeltaTime));
             Vector3 toPlayerScaled = toPlayer * this.flySpeed * Time.fixedDeltaTime;
@@ -61,7 +63,7 @@ public class RobotFlying : MonoBehaviour
 
     public Vector3 GetPlayerPosition()
     {
-        return player.position;
+        return playerCollider.bounds.center;
     }
 
     public bool HasPlayer()

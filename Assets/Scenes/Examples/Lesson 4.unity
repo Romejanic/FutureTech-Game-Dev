@@ -3560,6 +3560,34 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1460287318}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1460287320 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 149790, guid: 7737647c22c1fc64a88d5cd030c352ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 1460287318}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1460287321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460287320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 996755ad3716d074d9a0829661b3df01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  onDieEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHurtEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHealEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1656160310
 GameObject:
   m_ObjectHideFlags: 0
@@ -3859,7 +3887,7 @@ PrefabInstance:
     - target: {fileID: 5655092309568429011, guid: a674478a67980ca4bb1769f2d542468d,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a674478a67980ca4bb1769f2d542468d, type: 3}
